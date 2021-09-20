@@ -1,39 +1,28 @@
-import express from "express";
-import { ApolloServer } from "apollo-server-express";
+import { NestFactory } from "@nestjs/core";
+import { NestExpressApplication, ExpressAdapter } from "@nestjs/platform-express";
+import { ConfigService } from "@nestjs/config";
 
-const app = express();
+import { AppModule } from "./app.module";
+import { expressApp } from "./apollo";
 
-const typeDefs = `
-    type Query{
-        totalPosts: Int!
-    }
-`;
+async function bootstrap(): Promise<void> {
+  const adapter = new ExpressAdapter(await expressApp());
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, adapter);
 
-const resolvers = {
-  Query: {
-    totalPosts: () => 100,
-  },
-};
+  const configService = app.get(ConfigService);
 
-async function startApolloServer() {
-  const apolloServer = new ApolloServer({
-    typeDefs,
-    resolvers,
+  const nodeEnv = configService.get<string>("NODE_ENV", "development");
+
+  if (nodeEnv === "production" || nodeEnv === "staging") {
+    app.enableShutdownHooks();
+  }
+
+  const host = configService.get<string>("HOST", "localhost");
+  const port = configService.get<number>("PORT", 3000);
+
+  await app.listen(port, host, () => {
+    console.info(`API server is running on http://${host}:${port}/graphql`);
   });
-  await apolloServer.start();
-  apolloServer.applyMiddleware({ app });
-  return app;
 }
 
-void startApolloServer().then(app => {
-  app.get("/rest", function (req, res) {
-    res.json({ data: "api working" });
-  });
-
-  const host = "localhost";
-  const port = 3000;
-
-  app.listen(port, host, function () {
-    console.info(`server running on port http://${host}:${port}/graphql`);
-  });
-});
+void bootstrap();

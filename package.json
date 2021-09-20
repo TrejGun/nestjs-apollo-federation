@@ -5,9 +5,20 @@
     "url": "https://trejgun.github.io/"
   },
   "dependencies": {
+    "@gemunion/nest-js-module-typeorm-logger": "1.2.4",
+    "@nestjs/common": "8.0.6",
+    "@nestjs/config": "1.0.1",
+    "@nestjs/core": "8.0.6",
+    "@nestjs/graphql": "9.0.4",
+    "@nestjs/platform-express": "8.0.6",
     "apollo-server-express": "3.3.0",
+    "dotenv": "10.0.0",
     "express": "4.17.1",
-    "graphql": "15.5.3"
+    "graphql": "15.5.3",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "7.3.0",
+    "ts-morph": "11.0.3",
+    "type-graphql": "1.1.1"
   },
   "description": "Web3 transport for NestJS",
   "devDependencies": {
