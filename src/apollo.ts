@@ -1,7 +1,5 @@
-import express, { Application } from "express";
+import { Application } from "express";
 import { ApolloServer } from "apollo-server-express";
-
-const app = express();
 
 const typeDefs = `
     type Query{
@@ -15,14 +13,12 @@ const resolvers = {
   },
 };
 
-async function startApolloServer(app: Application) {
+export async function startApolloServer(app: Application) {
   const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
   });
   await apolloServer.start();
   apolloServer.applyMiddleware({ app });
-  return app;
+  return apolloServer;
 }
-
-export const expressApp = (): Promise<any> => startApolloServer(app);

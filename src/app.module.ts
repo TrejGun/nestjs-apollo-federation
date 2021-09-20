@@ -3,7 +3,7 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 import { GqlModuleOptions, GraphQLModule } from "@nestjs/graphql";
 import { Request, Response } from "express";
 
-import { TestModule } from "./test/test.module";
+import { TestModule } from "./test";
 
 @Module({
   imports: [

@@ -3,10 +3,12 @@ import { NestExpressApplication, ExpressAdapter } from "@nestjs/platform-express
 import { ConfigService } from "@nestjs/config";
 
 import { AppModule } from "./app.module";
-import { expressApp } from "./apollo";
+import { expressServer } from "./express";
+import { startApolloServer } from "./apollo";
 
 async function bootstrap(): Promise<void> {
-  const adapter = new ExpressAdapter(await expressApp());
+  await startApolloServer(expressServer);
+  const adapter = new ExpressAdapter(expressServer);
   const app = await NestFactory.create<NestExpressApplication>(AppModule, adapter);
 
   const configService = app.get(ConfigService);
