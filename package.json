@@ -21,7 +21,7 @@
     "ts-morph": "11.0.3",
     "type-graphql": "1.1.1"
   },
-  "description": "Web3 transport for NestJS",
+  "description": "NestJS Apollo Federation",
   "devDependencies": {
     "@gemunion/cross-env": "0.0.4",
     "@gemunion/eslint-config": "0.1.10",
@@ -51,13 +51,13 @@
   },
   "license": "UNLICENSED",
   "main": "./dist/index.js",
-  "name": "@trejgun/nestjs-apollo",
+  "name": "@trejgun/nestjs-apollo-federation",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TrejGun/nestjs-apollo"
+    "url": "https://github.com/TrejGun/nestjs-apollo-federation"
   },
   "scripts": {
     "build": "tsc",
