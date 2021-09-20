@@ -4,10 +4,8 @@ import { ConfigService } from "@nestjs/config";
 
 import { AppModule } from "./app.module";
 import { expressServer } from "./express";
-import { startApolloServer } from "./apollo";
 
 async function bootstrap(): Promise<void> {
-  await startApolloServer(expressServer);
   const adapter = new ExpressAdapter(expressServer);
   const app = await NestFactory.create<NestExpressApplication>(AppModule, adapter);
 

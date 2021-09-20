@@ -7,6 +7,7 @@
   "dependencies": {
     "@gemunion/nest-js-module-typeorm-logger": "1.2.4",
     "@nestjs/common": "8.0.6",
+    "@apollo/federation": "0.32.0",
     "@nestjs/config": "1.0.1",
     "@nestjs/core": "8.0.6",
     "@nestjs/graphql": "9.0.4",

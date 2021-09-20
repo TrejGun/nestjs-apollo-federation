@@ -1,13 +1,13 @@
 import { Application } from "express";
-import { ApolloServer } from "apollo-server-express";
+import { ApolloServer, gql } from "apollo-server-express";
 
-const typeDefs = `
-    type Query{
-        totalPosts: Int!
-    }
+export const typeDefs = gql`
+  type Query {
+    totalPosts: Int!
+  }
 `;
 
-const resolvers = {
+export const resolvers = {
   Query: {
     totalPosts: () => 100,
   },
