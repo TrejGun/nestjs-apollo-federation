@@ -5,7 +5,7 @@
     "url": "https://trejgun.github.io/"
   },
   "dependencies": {
-    "@gemunion/nest-js-module-typeorm-logger": "1.2.4",
+    "@gemunion/nest-js-module-typeorm-logger": "1.2.7",
     "@nestjs/common": "8.0.9",
     "@apollo/federation": "0.33.0",
     "@nestjs/config": "1.0.1",
