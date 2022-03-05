@@ -1,8 +1,9 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
-import { GqlModuleOptions, GraphQLModule } from "@nestjs/graphql";
+import { GraphQLModule } from "@nestjs/graphql";
 import { Request, Response } from "express";
 import { buildSubgraphSchema } from "@apollo/federation";
+import { ApolloFederationDriver, ApolloFederationDriverConfig } from "@nestjs/apollo";
 
 import { TestModule } from "./test";
 import { resolvers, typeDefs } from "./apollo";
@@ -12,10 +13,11 @@ import { resolvers, typeDefs } from "./apollo";
     ConfigModule.forRoot({
       envFilePath: ".env",
     }),
-    GraphQLModule.forRootAsync({
+    GraphQLModule.forRootAsync<ApolloFederationDriverConfig>({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (configService: ConfigService): GqlModuleOptions => {
+      driver: ApolloFederationDriver,
+      useFactory: (configService: ConfigService) => {
         const nodeEnv = configService.get<string>("NODE_ENV", "development");
         return {
           schema: buildSubgraphSchema([{ typeDefs, resolvers }]),
