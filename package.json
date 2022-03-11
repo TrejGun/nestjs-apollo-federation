@@ -18,7 +18,7 @@
     "graphql": "16.3.0",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.5.5",
-    "ts-morph": "13.0.3",
+    "ts-morph": "14.0.0",
     "type-graphql": "1.1.1"
   },
   "description": "NestJS Apollo Federation",
