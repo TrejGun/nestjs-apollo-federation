@@ -5,12 +5,12 @@
     "url": "https://trejgun.github.io/"
   },
   "dependencies": {
-    "@nestjs/apollo": "10.2.0",
+    "@nestjs/apollo": "11.0.4",
     "@nestjs/common": "9.3.12",
     "@apollo/federation": "0.38.1",
     "@nestjs/config": "2.3.1",
     "@nestjs/core": "9.3.12",
-    "@nestjs/graphql": "10.2.0",
+    "@nestjs/graphql": "11.0.4",
     "@nestjs/platform-express": "9.3.12",
     "@apollo/server": "4.6.0",
     "dotenv": "16.0.3",
