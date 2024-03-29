@@ -16,7 +16,7 @@
     "dotenv": "16.4.5",
     "express": "4.19.2",
     "graphql": "16.8.1",
-    "reflect-metadata": "0.2.1",
+    "reflect-metadata": "0.2.2",
     "rxjs": "7.8.1",
     "ts-morph": "21.0.1",
     "type-graphql": "1.1.1"
@@ -41,7 +41,7 @@
     "lint-staged": "15.2.2",
     "prettier": "3.2.5",
     "rimraf": "5.0.5",
-    "tsc-watch": "6.1.0",
+    "tsc-watch": "6.2.0",
     "ts-node": "10.9.2",
     "typescript": "5.4.3"
   },
